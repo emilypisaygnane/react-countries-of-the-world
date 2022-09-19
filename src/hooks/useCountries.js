@@ -1,5 +1,5 @@
-import { fetchCountries } from "../services/countries";
-import { useState, useEffect } from "react";
+import { fetchCountries } from '../services/countries';
+import { useState, useEffect } from 'react';
 
 export default function useCountries() {
   const [countries, setCountries] = useState([]);
