@@ -4,13 +4,19 @@ import { useState, useEffect } from 'react';
 export default function useCountries() {
   const [countries, setCountries] = useState([]);
   const [continent, setContinent] = useState('all');
+  const [error, setError] = useState('');
 
   useEffect(() => {
     async function fetchData() {
-      const data = await fetchCountries();
-      setCountries(data);
+      try {
+        const data = await fetchCountries();
+        setCountries(data);
+        console.log('between data and setCountries');
+      } catch (e) {
+        console.log(e);
+        setError('Uh Oh, Something Went Wrong D:');
+      }
     }
-  
     fetchData();
   
   }, []);
