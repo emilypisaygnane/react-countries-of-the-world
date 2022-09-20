@@ -8,7 +8,7 @@ export default function Main() {
     <main>
       <h2> Flags Across the World!</h2>
       <Filter continent={continent} setContinent={setContinent} />
-      <div>
+      <div className='flag-display'>
         {filterCountries().map((countries) => (
           <CountryCard key={countries.id} {...countries} />
         ))}
