@@ -1,9 +1,18 @@
-export default function Filter({ continent, setContinent, error }) {
+// import './Filter/filter.css';
+
+
+export default function Filter({ 
+  continent, setContinent,
+  error,
+  query, setQuery
+  order, setOrder
+}) {
   return (
     <>    
       <p className='error'>{error}</p>
+      <p>Filter by Continent:</p>
       <select 
-        className="filter"
+        className="option-filter"
         value={continent}
         onChange={(e) => {
           setContinent(e.target.value);
@@ -18,6 +27,30 @@ export default function Filter({ continent, setContinent, error }) {
         <option value="South America">South America</option>
         <option value="Asia">Asia</option>
 
+      </select>
+
+      <label className="flag-filter">
+        <p>Search for Flag:</p>
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value); 
+          }}
+        />
+      </label>
+
+      <p>Sort Alphabetically:</p>
+      <select
+        className="alpha-filter"
+        value={order}
+        onChange={(e) => {
+          setOrder(e.target.value);
+        }}
+      >
+        <option value="default">Default</option>
+        <option value="asc">A-Z</option>
+        <option value="desc">Z-A</option>
       </select>
     </>
   );
