@@ -1,11 +1,11 @@
-// import './Filter/filter.css';
+import '../Filter/Filter.css';
 
 
 export default function Filter({ 
   continent, setContinent,
   error,
-  query, setQuery
-  order, setOrder
+//   search, setSearch,
+//   order, setOrder
 }) {
   return (
     <>    
@@ -28,14 +28,14 @@ export default function Filter({
         <option value="Asia">Asia</option>
 
       </select>
-
+      {/* 
       <label className="flag-filter">
         <p>Search for Flag:</p>
         <input
           type="text"
-          value={query}
+          value={search}
           onChange={(e) => {
-            setQuery(e.target.value); 
+            setSearch(e.target.value); 
           }}
         />
       </label>
@@ -48,10 +48,11 @@ export default function Filter({
           setOrder(e.target.value);
         }}
       >
+
         <option value="default">Default</option>
         <option value="asc">A-Z</option>
         <option value="desc">Z-A</option>
-      </select>
+      </select> */}
     </>
   );
 }

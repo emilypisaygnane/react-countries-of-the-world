@@ -28,6 +28,6 @@ export default function useCountries() {
 
   };
 
-  return { filterCountries, continent, setContinent };
+  return { filterCountries, continent, setContinent, error };
 
 }
