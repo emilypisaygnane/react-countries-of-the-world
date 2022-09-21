@@ -11,9 +11,7 @@ export default function useCountries() {
       try {
         const data = await fetchCountries();
         setCountries(data);
-        console.log('between data and setCountries');
       } catch (e) {
-        console.log(e);
         setError('Uh Oh, Something Went Wrong D:');
       }
     }

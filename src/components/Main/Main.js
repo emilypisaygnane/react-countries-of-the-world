@@ -11,28 +11,32 @@ export default function Main() {
     search, 
     setSearch, 
     order, 
-    setOrder
+    setOrder, 
+    error
   } = useCountries();
 
   return (
-    <main>
-      <h2>Flags Across the World!</h2>
+    <>
+      <p>{error}</p>
+      <main>
+        <h2>Flags Across the World!</h2>
 
-      <Filter 
-        continent={continent} 
-        setContinent={setContinent}
-        search={search} 
-        setSearch={setSearch}
-        order={order} 
-        setOrder={setOrder}
-      />
+        <Filter 
+          continent={continent} 
+          setContinent={setContinent}
+          search={search} 
+          setSearch={setSearch}
+          order={order} 
+          setOrder={setOrder}
+        />
 
 
-      <div className='flag-display'>
-        {filterCountries().map((countries) => (
-          <CountryCard key={countries.id} {...countries} />
-        ))}
-      </div>
-    </main>
+        <div className='flag-display'>
+          {filterCountries().map((countries) => (
+            <CountryCard key={countries.id} {...countries} />
+          ))}
+        </div>
+      </main>
+    </>
   );
 }
