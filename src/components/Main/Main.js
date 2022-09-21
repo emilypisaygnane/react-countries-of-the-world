@@ -8,10 +8,10 @@ export default function Main() {
     filterCountries, 
     continent, 
     setContinent, 
-    search, 
-    setSearch, 
-    order, 
-    setOrder, 
+    // search, 
+    // setSearch, 
+    // order, 
+    // setOrder, 
     error
   } = useCountries();
 
@@ -24,10 +24,10 @@ export default function Main() {
         <Filter 
           continent={continent} 
           setContinent={setContinent}
-          search={search} 
-          setSearch={setSearch}
-          order={order} 
-          setOrder={setOrder}
+          // search={search} 
+          // setSearch={setSearch}
+          // order={order} 
+          // setOrder={setOrder}
         />
 
 
