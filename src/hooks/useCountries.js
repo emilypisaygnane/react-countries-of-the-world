@@ -21,13 +21,18 @@ export default function useCountries() {
   }, []);
 
   const filterCountries = () => {
-    
-    if (continent === 'all')
-      return countries;
-    return countries.filter((countries) => countries.continent === continent);
+    const continentArray = countries.filter((country) => {
+      if (continent === 'All')
+        return true;
+      return country.continent === continent;
+    });
+
+    return continentArray.filter((country) =>
+      country.name.toLowerCase().includes(search.toLowerCase())
+    );
 
   };
 
-  return { filterCountries, continent, setContinent, error };
+  return { filterCountries, continent, setContinent, error, search, setSearch };
 
 }

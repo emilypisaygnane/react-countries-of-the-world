@@ -1,4 +1,4 @@
-export default function Search ({ search, setSearch}) {
+export default function Search({ search, setSearch }) {
 
   return (
     <div>
