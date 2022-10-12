@@ -11,6 +11,8 @@ export default function Main() {
     setContinent, 
     search, 
     setSearch, 
+    sort,
+    setSort,
     error
   } = useCountries();
 
@@ -28,8 +30,9 @@ export default function Main() {
         <Filter 
           continent={continent} 
           setContinent={setContinent}
+          sort={sort}
+          setSort={setSort}
         />
-
 
         <div className='flag-display'>
           {filterCountries().map((countries) => (

@@ -1,15 +1,23 @@
 import '../Filter/Filter.css';
 
 
-export default function Filter({ 
-  continent, setContinent,
-  error,
-//   search, setSearch,
-//   order, setOrder
-}) {
+export default function Filter({ continent, setContinent, error, sort, setSort }) {
+  
   return (
     <>    
       <p className='error'>{error}</p>
+      <p>Sort by:</p>
+      <select
+        className="sort"
+        value={sort}
+        onChange={(e) => setSort(e.target.value)}>
+
+        Sort:
+        <option value="None">All</option>
+        <option value="Alphabetical">A-Z</option>
+        <option value="Reverse">Z-A</option>
+      </select>
+
       <p>Filter by Continent:</p>
       <select 
         className="option-filter"

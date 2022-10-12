@@ -6,6 +6,7 @@ export default function useCountries() {
   const [continent, setContinent] = useState('all');
   const [error, setError] = useState('');
   const [search, setSearch] = useState('');
+  const [sort, setSort] = useState('None');
 
   useEffect(() => {
     async function fetchData() {
@@ -27,12 +28,34 @@ export default function useCountries() {
       return country.continent === continent;
     });
 
-    return continentArray.filter((country) =>
+    const filteredArray = continentArray.filter((country) =>
       country.name.toLowerCase().includes(search.toLowerCase())
     );
-
+    if (sort === 'Alphabetical') {
+      filteredArray.sort((a, b) => {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    if (sort === 'Reverse') {
+      filteredArray.sort((a, b) => {
+        if (b.name < a.name) {
+          return -1;
+        }
+        if (b.name > a.name) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    return filteredArray;
   };
 
-  return { filterCountries, continent, setContinent, error, search, setSearch };
+  return { filterCountries, continent, setContinent, error, search, setSearch, sort, setSort };
 
 }

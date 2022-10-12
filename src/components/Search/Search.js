@@ -2,7 +2,7 @@ export default function Search({ search, setSearch }) {
 
   return (
     <div>
-      <h3>Search:</h3>
+      <p>Search:</p>
       <input 
         type="text" 
         value={search} 
