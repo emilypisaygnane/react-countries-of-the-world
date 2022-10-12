@@ -1,6 +1,7 @@
 import useCountries from '../../hooks/useCountries';
 import CountryCard from '../CountryCard/CountryCard';
 import Filter from '../Filter/Filter';
+import Search from '../Search/Search';
 
 export default function Main() {
   
@@ -8,10 +9,8 @@ export default function Main() {
     filterCountries, 
     continent, 
     setContinent, 
-    // search, 
-    // setSearch, 
-    // order, 
-    // setOrder, 
+    search, 
+    setSearch, 
     error
   } = useCountries();
 
@@ -21,13 +20,14 @@ export default function Main() {
       <main>
         <h2>Flags Across the World!</h2>
 
+        <Search 
+          search={search} 
+          setSearch={setSearch} 
+        />
+
         <Filter 
           continent={continent} 
           setContinent={setContinent}
-          // search={search} 
-          // setSearch={setSearch}
-          // order={order} 
-          // setOrder={setOrder}
         />
 
 

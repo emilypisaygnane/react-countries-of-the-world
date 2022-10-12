@@ -22,7 +22,7 @@ export default function useCountries() {
 
   const filterCountries = () => {
     const continentArray = countries.filter((country) => {
-      if (continent === 'All')
+      if (continent === 'all')
         return true;
       return country.continent === continent;
     });
