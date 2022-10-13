@@ -2,10 +2,12 @@ import useCountries from '../../hooks/useCountries';
 import CountryCard from '../CountryCard/CountryCard';
 import Filter from '../Filter/Filter';
 import Search from '../Search/Search';
+import './Main.css';
 
 export default function Main() {
   
   const { 
+    loading,
     filterCountries, 
     continent, 
     setContinent, 
@@ -15,6 +17,9 @@ export default function Main() {
     setSort,
     error
   } = useCountries();
+
+  if (loading) {
+    return <div className="loader"></div>;}
 
   return (
     <>

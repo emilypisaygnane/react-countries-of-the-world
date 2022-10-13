@@ -2,6 +2,7 @@ import { fetchCountries } from '../services/countries';
 import { useState, useEffect } from 'react';
 
 export default function useCountries() {
+  const [loading, setLoading] = useState(true);
   const [countries, setCountries] = useState([]);
   const [continent, setContinent] = useState('all');
   const [error, setError] = useState('');
@@ -10,9 +11,11 @@ export default function useCountries() {
 
   useEffect(() => {
     async function fetchData() {
+      setLoading(true);
       try {
         const data = await fetchCountries();
         setCountries(data);
+        setLoading(false);
       } catch (e) {
         setError('Uh Oh, Something Went Wrong D:');
       }
@@ -56,6 +59,15 @@ export default function useCountries() {
     return filteredArray;
   };
 
-  return { filterCountries, continent, setContinent, error, search, setSearch, sort, setSort };
+  return { 
+    loading,
+    filterCountries, 
+    continent, 
+    setContinent, 
+    error, 
+    search, 
+    setSearch, 
+    sort, 
+    setSort };
 
 }
